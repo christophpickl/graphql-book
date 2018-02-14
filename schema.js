@@ -13,6 +13,7 @@ type Author {
 }
 type Query { 
 	books: [Book]
+	book(title: String!): Book
 }
 `;
 

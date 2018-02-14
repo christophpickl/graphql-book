@@ -21,6 +21,13 @@ const resolvers = {
         books: () => {
             return books;
         },
+        book: (root, args) => {
+            let result = null;
+            books.forEach(function(b) {
+                if (b.title === args.title) result = b;
+            });
+            return result;
+        },
     },
 };
 

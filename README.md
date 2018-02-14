@@ -28,9 +28,15 @@ In order to run the server, simply execute `npm start` which should print out th
 The address http://localhost:4000/ should return a simple "Hello World!",
 whereas the well-known GraphiQL is available at: http://localhost:4000/graphiql
 
-Run the following sample query:
+## Client
 
-    query readBooks {
+Point your browser to http://localhost:4001/client.html to run a sample client.
+
+## Sample queries
+
+Read all books:
+
+    query readAllBooks {
       books {
         id
         title
@@ -41,6 +47,11 @@ Run the following sample query:
       }
     }
 
-## Client
+Read a single book:
 
-Point your browser to http://localhost:4001/client.html to run a sample client.
+    query readBook {
+      book(title: "ReSTful Services") {
+        id
+        title
+      }
+    }
