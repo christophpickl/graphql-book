@@ -1,5 +1,6 @@
-var {makeExecutableSchema,addMockFunctionsToSchema} = require('graphql-tools'); 
-const typeDefs = `
+let {makeExecutableSchema,addMockFunctionsToSchema} = require('graphql-tools');
+
+let typeDefs = `
 type Book {
 	id: ID!
 	title: String 
@@ -13,6 +14,7 @@ type Query {
 	books: [Book]
 }
 `;
-var schema = makeExecutableSchema({ typeDefs }); 
+
+let schema = makeExecutableSchema({ typeDefs });
 addMockFunctionsToSchema({ schema }); 
 module.exports = schema;
