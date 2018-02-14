@@ -40,3 +40,7 @@ Run the following sample query:
         }
       }
     }
+
+## Client
+
+Point your browser to http://localhost:4001/client.html to run a sample client.

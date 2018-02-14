@@ -1,0 +1,61 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function executeGql() {
+            const gqlQuery = document.getElementById("input").value;
+            const xhr = new XMLHttpRequest();
+            xhr.responseType = 'json';
+            xhr.open("POST", "http://localhost:4000/graphql");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.onload = function () {
+                document.getElementById("output").value = JSON.stringify(xhr.response, null, 2);
+            };
+            xhr.send(JSON.stringify({query: gqlQuery}));
+        }
+
+    </script>
+    <style type="text/css">
+        body {
+            padding-bottom: 10px;
+        }
+        h1, label, input {
+            font-family: sans-serif;
+        }
+        input {
+            margin-top: 12px;
+            margin-bottom: 12px;
+            font-size: 14pt;
+        }
+        #input {
+            background-color: aliceblue;
+            height: 30%;
+        }
+        #output {
+            background-color: antiquewhite;
+            height: 50%;
+        }
+        #input, #output {
+            font-family: monospace;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>GraphQL Client</h1>
+    <label for="input">Specify query:</label><textarea id="input">
+{
+  books {
+    id
+    title
+    authors {
+      id
+      name
+    }
+  }
+}
+    </textarea><br/>
+    <input type="button" value="Execute Query" onclick="executeGql()" /><br/>
+    <label for="output">Response output:</label><textarea id="output" contenteditable="false"></textarea>
+</body>
+</html>
