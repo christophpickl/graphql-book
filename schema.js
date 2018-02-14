@@ -17,5 +17,5 @@ type Query {
 }
 `;
 
-const schema = makeExecutableSchema({ typeDefs, resolvers });
+const schema = makeExecutableSchema({typeDefs, resolvers});
 module.exports = schema;
