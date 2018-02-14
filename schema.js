@@ -1,6 +1,7 @@
-let {makeExecutableSchema,addMockFunctionsToSchema} = require('graphql-tools');
+const {makeExecutableSchema} = require('graphql-tools');
+const resolvers = require("./resolvers.js");
 
-let typeDefs = `
+const typeDefs = `
 type Book {
 	id: ID!
 	title: String 
@@ -15,6 +16,5 @@ type Query {
 }
 `;
 
-let schema = makeExecutableSchema({ typeDefs });
-addMockFunctionsToSchema({ schema }); 
+const schema = makeExecutableSchema({ typeDefs, resolvers });
 module.exports = schema;
